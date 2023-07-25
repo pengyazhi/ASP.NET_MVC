@@ -1,0 +1,26 @@
+﻿@model projMvcDemo.Models.CCustomer
+@{
+    string photo = "Unknown.jpg";
+    
+    if (Model!= null)
+    {
+        photo = Model.fId+ ".jpg";
+    }
+}
+
+<h2>客戶資料查詢範例</h2>
+<img src="~/Images/@photo" width="200" />
+@{
+    if (Model == null)
+    {
+        <h3>查無資料</h3>
+    }
+    else
+    {
+        <p>
+            <h3>@Model.fName</h3>
+            @Model.fPhone/@Model.fEmail
+        </p>
+    }
+}
+

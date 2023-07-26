@@ -1,0 +1,47 @@
+﻿@using projMvcDemo.Models
+@model List<CCustomer>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>客戶資料一覽表</h2>
+<form method="post">
+    關鍵字<input type="text" name="txtKeyword" />
+    <input type="submit" value="查詢"/>
+</form>
+<p>
+    <a href="~/Customer/Creat">新增客戶資料</a>
+</p>
+<div>
+    <table border="1" >
+        <tr>
+            <td>序號</td>
+            <td>姓名</td>
+            <td>電話</td>
+            <td>電子郵件</td>
+            <td>地址</td>
+            <td>密碼</td>
+            <td>編輯</td>
+            <td>刪除</td>
+        </tr>
+
+        @{
+            int count = 0;
+            foreach (CCustomer c in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@c.fName</td>
+                    <td>@c.fPhone</td>
+                    <td>@c.fEmail</td>
+                    <td>@c.fAddress</td>
+                    <td>@c.fPassword</td>
+                    <td>@Html.ActionLink("編輯", "Edit", "Customer", new { id = c.fId }, null)</td>
+                    <td>@Html.ActionLink("刪除", "Delete", "Customer", new { id = c.fId }, new { onclick = "return confirm('確定要刪除嗎?')" })</td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+

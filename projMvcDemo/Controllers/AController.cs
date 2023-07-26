@@ -11,24 +11,80 @@ namespace projMvcDemo.Controllers
 {
     public class AController : Controller
     {
+        public ActionResult demoForm() 
+        {
+            ViewBag.ANS = "?";
+            if (!string.IsNullOrEmpty(Request.Form["txtA"])
+                && !string.IsNullOrEmpty(Request.Form["txtB"])
+                && !string.IsNullOrEmpty(Request.Form["txtC"]))
+            {
+                double a = ViewBag.A = Convert.ToDouble(Request.Form["txtA"]);
+                double b = ViewBag.B = Convert.ToDouble(Request.Form["txtB"]);
+                double c = ViewBag.C = Convert.ToDouble(Request.Form["txtC"]);
+                double sqrt = Math.Sqrt((b * b) - 4 * a * c);
+                ViewBag.ANS = $"{(-b + sqrt) / 2 * a} 或 {(-b - sqrt) / 2 * a} " ;
+            }
+            return View();
+        }
+        #region 查詢全部資料測試
+        public string testingQuery()
+        {
+            return  "目前客戶數 : " + (new CCustomerFactory()).queryAll().Count().ToString();
+        }
+        #endregion
+
+        #region 查詢單筆資料測試ByID
+        public string testingQueryById(int? id)
+        {
+            if(id != null)
+            {
+                CCustomerFactory x = new CCustomerFactory();
+                CCustomer customer = x.queryById((int)id);
+                if (customer != null)
+                    return $"客戶名稱 : {customer.fName} / {customer.fPhone} / {customer.fAddress} / {customer.fEmail}";
+                return "沒有符合的查詢";
+            }
+            return "沒有提供查詢條件";
+        }
+        #endregion
+
+        #region 刪除資料測試
         public string testingDelete(int? id)
         {
             if (id != null)
                 (new CCustomerFactory()).delete((int)id);
             return "刪除資料成功!";
         }
+        #endregion 刪除資料測試
 
-            public string testingInsert()
+        #region 更新資料測試
+        public string testingUpdate()
         {
             CCustomer x = new CCustomer();
-            x.fName = "Emma";
+            x.fId = 9;
+            x.fName = "Terry";
             x.fPhone = "0977449520";
             x.fEmail = "eee@gmail.com";
-            x.fAddress = "Taipei";
-            x.fPassword = "0147";
+            x.fAddress = "PinDung";
+            x.fPassword = "7777";
+            (new CCustomerFactory()).update(x);
+            return "修改資料成功!";
+        }
+        #endregion 更新資料測試
+
+        #region 新增資料測試
+        public string testingInsert()
+        {
+            CCustomer x = new CCustomer();
+            x.fName = "Terry";
+            //x.fPhone = "0977449520";
+            //x.fEmail = "eee@gmail.com";
+            x.fAddress = "TaiDung";
+            x.fPassword = "5555";
             (new CCustomerFactory()).creat(x);
             return "新增資料成功!";
         }
+        #endregion
         //強型別:將物件放到return View , cshtml使用@model及Model
         public ActionResult bindingById(int? id)
         { 

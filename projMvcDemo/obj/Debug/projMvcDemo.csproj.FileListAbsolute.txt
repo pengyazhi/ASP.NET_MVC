@@ -76,3 +76,8 @@ C:\QNote\codes\slnMvcDemo\projMvcDemo\obj\Debug\projMvcDemo.csproj.CoreCompileIn
 C:\QNote\codes\slnMvcDemo\projMvcDemo\obj\Debug\projMvcDemo.csproj.CopyComplete
 C:\QNote\codes\slnMvcDemo\projMvcDemo\obj\Debug\projMvcDemo.dll
 C:\QNote\codes\slnMvcDemo\projMvcDemo\obj\Debug\projMvcDemo.pdb
+C:\QNote\codes\slnMvcDemo\projMvcDemo\bin\EntityFramework.dll
+C:\QNote\codes\slnMvcDemo\projMvcDemo\bin\EntityFramework.SqlServer.dll
+C:\QNote\codes\slnMvcDemo\projMvcDemo\bin\EntityFramework.xml
+C:\QNote\codes\slnMvcDemo\projMvcDemo\bin\EntityFramework.SqlServer.xml
+C:\QNote\codes\slnMvcDemo\projMvcDemo\bin\zh-Hant\EntityFramework.resources.dll

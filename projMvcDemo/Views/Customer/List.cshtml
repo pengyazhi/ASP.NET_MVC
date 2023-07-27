@@ -10,10 +10,10 @@
     <input type="submit" value="查詢"/>
 </form>
 <p>
-    <a href="~/Customer/Creat">新增客戶資料</a>
+    @Html.ActionLink("新增客戶資料", "Creat", "Customer", null, new { @class = "btn btn-outline-secondary" })
 </p>
 <div>
-    <table border="1" >
+    <table class="table table-striped table-hover">
         <tr>
             <td>序號</td>
             <td>姓名</td>
@@ -37,8 +37,9 @@
                     <td>@c.fEmail</td>
                     <td>@c.fAddress</td>
                     <td>@c.fPassword</td>
-                    <td>@Html.ActionLink("編輯", "Edit", "Customer", new { id = c.fId }, null)</td>
-                    <td>@Html.ActionLink("刪除", "Delete", "Customer", new { id = c.fId }, new { onclick = "return confirm('確定要刪除嗎?')" })</td>
+                    <td>@Html.ActionLink("編輯", "Edit", "Customer", new { id = c.fId }, new {@class="btn btn-success"})</td>
+                    <td>@Html.ActionLink("刪除", "Delete", "Customer", new { id = c.fId }, new { onclick = "return confirm('確定要刪除嗎?')",
+                   @class="btn btn-danger"})</td>
                 </tr>
             }
         }

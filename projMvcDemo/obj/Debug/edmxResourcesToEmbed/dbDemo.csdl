@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbDemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tProduct">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fQty" Type="Int32" />
+    <Property Name="fCost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="fPrice" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityContainer Name="dbDemoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tProduct" EntityType="Self.tProduct" />
+    <EntitySet Name="tShoppingCart" EntityType="dbDemoModel.tShoppingCart" />
+  </EntityContainer>
+  <EntityType Name="tShoppingCart">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fCustomerId" Type="Int32" />
+    <Property Name="fProductId" Type="Int32" />
+    <Property Name="fCount" Type="Int32" />
+    <Property Name="fPrice" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+</Schema>

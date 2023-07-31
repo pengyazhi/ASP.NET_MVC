@@ -1,0 +1,12 @@
+﻿@using projMvcDemo.Models
+@{
+    ViewBag.Title = "Home";
+    string user = "";
+    if (Session[CDictionary.SK_LOGIN_USER] != null)
+    {
+        user = (Session[CDictionary.SK_LOGIN_USER] as CCustomer).fName;
+    }
+}
+
+<h2>歡迎 @user  登入系統</h2>
+

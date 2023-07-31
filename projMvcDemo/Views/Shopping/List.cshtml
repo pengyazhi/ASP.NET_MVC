@@ -24,6 +24,7 @@
             @Html.DisplayNameFor(model => model.fPrice)
         </th>
         <th></th>
+        <th></th>
     </tr>
 
 @{
@@ -45,7 +46,10 @@
             @Html.DisplayFor(modelItem => item.fPrice)
         </td>
         <td>
-            @Html.ActionLink("加入購物車", "AddToCart", new { id=item.fId }) 
+            @Html.ActionLink("加入購物車", "AddToCart", new { id = item.fId })
+        </td>
+        <td>
+            @Html.ActionLink("加入購物車BySession", "AddToSession", new { id = item.fId })
         </td>
     </tr>
         }

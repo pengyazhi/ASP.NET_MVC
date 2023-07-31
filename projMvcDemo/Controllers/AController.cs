@@ -11,7 +11,51 @@ namespace projMvcDemo.Controllers
 {
     public class AController : Controller
     {
-        public ActionResult demoForm() 
+        public ActionResult demoFileUpload()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult demoFileUpload(HttpPostedFileBase photo)
+        {
+            photo.SaveAs(@"C:\QNote\codes\slnMvcDemo\projMvcDemo\Images\001.jpg");
+            return View();
+        }
+        //使用cookie不會因為重啟網頁而被更新,但容易被攻擊跟被使用者清除掉
+        public ActionResult showCountByCookie() 
+        {
+            int count = 0;
+            HttpCookie cookie = Request.Cookies["KK"];
+            if(cookie != null)
+                count = Convert.ToInt32(cookie.Value);
+            count++;
+            cookie = new HttpCookie("KK");
+            cookie.Value = count.ToString();
+            cookie.Expires = DateTime.Now.AddSeconds(10);
+            Response.Cookies.Add(cookie);
+
+            ViewBag.COUNT = count;
+            return View();
+        }
+
+            public ActionResult showCountBySession() //如果用的是分頁開啟另一個相同網址也會變成同步(SessionID是一樣的)
+        {
+            int count = 0;
+            if (Session["COUNT"] != null)
+                count = (int)Session["COUNT"];
+            count++;
+            Session["COUNT"] = count;
+            ViewBag.COUNT = count;
+            return View();
+        }
+        static int count = 0; //異地同步
+        public ActionResult showCount()
+        {
+            count++;
+            ViewBag.N = count;
+            return View();
+        }
+            public ActionResult demoForm() 
         {
             ViewBag.ANS = "?";
             if (!string.IsNullOrEmpty(Request.Form["txtA"])

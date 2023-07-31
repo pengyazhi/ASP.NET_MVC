@@ -13,16 +13,12 @@ namespace projMvcDemo
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-               name: "產品管理",
-               url: "{controller}/{action}/{id}",
-               defaults: new { controller = "Product", action = "List", id = UrlParameter.Optional }
-           );
+         
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Common", action = "Login", id = UrlParameter.Optional }
             );
         }
     }

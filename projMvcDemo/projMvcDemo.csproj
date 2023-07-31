@@ -157,6 +157,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShoppingController.cs" />
@@ -180,7 +181,9 @@
     </Compile>
     <Compile Include="Models\CCustomer.cs" />
     <Compile Include="Models\CCustomerFactory.cs" />
+    <Compile Include="Models\CDictionary.cs" />
     <Compile Include="Models\CLottoGen.cs" />
+    <Compile Include="Models\CShoppingCartItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tProduct.cs">
       <DependentUpon>dbDemo.tt</DependentUpon>
@@ -189,6 +192,7 @@
       <DependentUpon>dbDemo.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CAddToCartViewModel.cs" />
+    <Compile Include="ViewModels\CLoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -230,6 +234,14 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Shopping\List.cshtml" />
     <Content Include="Views\Shopping\AddToCart.cshtml" />
+    <Content Include="Views\A\showCount.cshtml" />
+    <Content Include="Views\A\showCountBySession.cshtml" />
+    <Content Include="Views\A\showCountByCookie.cshtml" />
+    <Content Include="Views\Shopping\AddToSession.cshtml" />
+    <Content Include="Views\Shopping\CartView.cshtml" />
+    <Content Include="Views\Common\Home.cshtml" />
+    <Content Include="Views\Common\Login.cshtml" />
+    <Content Include="Views\A\demoFileUpload.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -239,7 +251,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
